@@ -9,27 +9,34 @@ using UnityEngine.UIElements;
 
 namespace Outgame
 {
-    /// <summary>
-    /// ガチャ管理ビュー
-    /// </summary>
+    // ガチャ管理ビュークラス
     public class UICardListView : UIStackableView
     {
+        // ListViewの参照
         [SerializeField] ListView _listView;
 
+        // UIStackableViewクラスのAwakeCallメソッドのオーバーライド
         protected override void AwakeCall()
         {
+            // ViewIDを設定
             ViewId = ViewID.CardList;
+            // ポップアップUIがあることを設定
             _hasPopUI = true;
         }
 
+        // Startメソッド
         private void Start()
         {
+            // ListViewのセットアップを実行
             _listView.Setup();
+            // アクティブにする
             Active();
         }
 
+        // Backメソッド
         public void Back()
         {
+            // UIManagerのBackメソッドを実行して戻る
             UIManager.Back();
         }
     }
